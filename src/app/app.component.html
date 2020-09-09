@@ -1,0 +1,7 @@
+<app-nav-bar *ngIf="user"></app-nav-bar>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer *ngIf="user"></app-footer>
