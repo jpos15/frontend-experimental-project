@@ -9,7 +9,7 @@ import { User } from './_models/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-authorization';
+  title = 'frontend-experimental-project';
 
   user: User;
 
