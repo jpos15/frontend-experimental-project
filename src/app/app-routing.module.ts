@@ -8,7 +8,12 @@ import { CreateProjectComponent } from './project/create-project/create-project.
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [] },
+  // { path: '', component: HomeComponent, canActivate: [] },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'project'
+  },
   { path: 'project', component: ProjectComponent, canActivate: [] },
   { path: 'project/add', component: CreateProjectComponent, canActivate: [] },
   { path: 'project/edit/:id', component: CreateProjectComponent, canActivate: [] },
