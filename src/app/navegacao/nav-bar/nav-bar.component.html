@@ -3,13 +3,13 @@
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" routerLink="/">Navbar</a>
+    <a class="navbar-brand" routerLink="/">EXP</a>
 
-    <div class="collapse navbar-collapse" id="navbar">
+    <div class="collapse navbar-collapse d-flex w-100 justify-content-between" id="navbar">
         <div class="navbar-nav">
             <a class="nav-item nav-link" routerLink="/">Home</a>
-            <!-- <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a> -->
-            <a class="nav-item nav-link" (click)="logout()">Logout</a>
+            <a class="nav-item nav-link" routerLink="/project">Project</a>
         </div>
+        <a class="nav-item nav-link float-right" (click)="logout()">Logout</a>
     </div>
 </nav>

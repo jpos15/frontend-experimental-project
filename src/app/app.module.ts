@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './navegacao/nav-bar/nav-bar.component';
 import { FooterComponent } from './navegacao/footer/footer.component';
+import { ProjectComponent } from './project/project.component';
+import { CreateProjectComponent } from './project/create-project/create-project.component';
 
 registerLocaleData(localePt, 'pt', localePtExtra);
 
@@ -25,7 +27,9 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     LoginComponent,
     HomeComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    ProjectComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserModule,
