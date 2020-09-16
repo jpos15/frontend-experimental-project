@@ -11,11 +11,15 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  list() {
+  get() {
     return this.http.get<RetornoApi>(`${environment.apiUrl}/project`);
   }
 
-  create(project: Project) {
+  getOne(id: string) {
+    return this.http.get<RetornoApi>(`${environment.apiUrl}/project?id=${id}`);
+  }
+
+  post(project: Project) {
     return this.http.post(`${environment.apiUrl}/project`, project);
   }
 }

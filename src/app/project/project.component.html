@@ -1,26 +1,23 @@
 <div class="d-flex w-100 justify-content-between">
-    <h6>Lista de Projetos</h6>
+    <h6>Projects</h6>
     <a [routerLink]="['add']" class="btn btn-sm btn-outline-success"><i class="fa fa-plus mr-1"
-            aria-hidden="true"></i>Novo</a>
+            aria-hidden="true"></i>New</a>
 </div>
 <hr>
 <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action" *ngFor="let item of docs">
+    <div class="list-group-item list-group-item" *ngFor="let item of docs">
         <div class="d-flex w-100 justify-content-between">
             <div class="col-md-6 pl-0">
                 <h6 class="mb-1">Título: {{item.title}}</h6>
             </div>
-            <div class="col-md-2 text-right">
-                <p *ngFor="let author of item.author">Autor: {{author.name}}</p>
-            </div>
-            <div class="col-md-2 text-right">
-                <p *ngFor="let affliation of item.affliation">Afiliação: {{affliation.name}}</p>
-            </div>
-            <div class="col-md-2 text-right">
-                <p *ngFor="let local of item.local">Local: {{local.name}}</p>
+            <div class="text-right">
+                <a [routerLink]="['view/', item._id]" class="btn btn-sm btn-outline-info"><i class="fa fa-eye mr-1"
+                        aria-hidden="true"></i>Viewer</a>
+                <a [routerLink]="['edit/', item._id]" class="btn btn-sm btn-outline-primary ml-2"><i
+                        class="fa fa-pencil-alt mr-1" aria-hidden="true"></i>Edit</a>
             </div>
         </div>
         <p class="mb-1">Tema: {{item.thema}}</p>
         <p class="mb-1">Área Técnica: {{item.technicalArea}}</p>
-    </a>
+    </div>
 </div>

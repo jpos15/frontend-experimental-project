@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Project } from 'src/app/_models/project';
 import { ProjectService } from '../project.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-create-project',
-  templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.css']
+  selector: 'app-project-create',
+  templateUrl: './project-create.component.html',
+  styleUrls: ['./project-create.component.css']
 })
-export class CreateProjectComponent implements OnInit {
+export class ProjectCreateComponent implements OnInit {
 
   cadastroForm!: FormGroup;
   project: Project = new Project();
@@ -32,10 +33,32 @@ export class CreateProjectComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private projectService$: ProjectService,
-    private router: Router,) { }
+    private router: Router,
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.criarFormulario();
+
+    this.route.params.subscribe(params => {
+
+      let id = params['id'];
+      this.alterar = id !== undefined;
+      if (this.alterar) {
+
+        this.spinner.show();
+        this.projectService$.getOne(id)
+          .subscribe(retorno => {
+            this.project = retorno.result.docs[0];
+            this.criarFormulario();
+            this.spinner.hide();
+          }),
+          error => {
+            alert(error);
+            this.spinner.hide();
+          };
+      }
+    });
   }
 
   criarFormulario() {
@@ -67,7 +90,6 @@ export class CreateProjectComponent implements OnInit {
 
     this.atualizarDadosObjeto();
 
-    console.log(this.project);
     this.loading = true;
     if (!this.alterar) {
       this.adicionar();
@@ -75,7 +97,7 @@ export class CreateProjectComponent implements OnInit {
   }
 
   adicionar() {
-    this.projectService$.create(this.project)
+    this.projectService$.post(this.project)
       .subscribe(retorno => {
         this.loading = false;
         this.router.navigate(['/project']);

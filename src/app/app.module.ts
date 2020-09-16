@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, DEFAULT_CURRENCY_CODE } from '@angular/core';
+import { NgModule, DEFAULT_CURRENCY_CODE, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,9 @@ import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './navegacao/nav-bar/nav-bar.component';
 import { FooterComponent } from './navegacao/footer/footer.component';
 import { ProjectComponent } from './project/project.component';
-import { CreateProjectComponent } from './project/create-project/create-project.component';
+import { ProjectCreateComponent } from './project/project-create/project-create.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProjectViewComponent } from './project/project-view/project-view.component';
 
 registerLocaleData(localePt, 'pt', localePtExtra);
 
@@ -29,14 +32,18 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     NavBarComponent,
     FooterComponent,
     ProjectComponent,
-    CreateProjectComponent
+    ProjectCreateComponent,
+    ProjectViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },

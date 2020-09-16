@@ -1,0 +1,38 @@
+<div class="d-flex w-100 justify-content-between">
+    <div>
+        <h6>View Project</h6>
+    </div>
+    <div>
+        <a type="button" class="btn btn-sm btn-outline-secondary mr-1" href="javascript:window.history.back();"><i
+                class="fa fa-arrow-left mr-1" aria-hidden="true"></i> Voltar</a>
+        <a [routerLink]="['/project','edit', project._id]" class="btn btn-sm btn-outline-primary ml-2"><i
+                class="fa fa-pencil-alt mr-1" aria-hidden="true"></i>Edit</a>
+    </div>
+</div>
+<hr>
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title text-primary">IDENTIFICATION</h5>
+        <p><strong class="text-primary">Title: </strong>{{project.title}}</p>
+        <p><strong class="text-primary">Theme: </strong>{{project.thema}}</p>
+        <p><strong class="text-primary">Technical Area: </strong>{{project.technicalArea}}</p>
+        <p><strong class="text-primary">Author: </strong>{{authors}}</p>
+        <p><strong class="text-primary">Affiliation: </strong></p>
+        <p><strong class="text-primary">Local: </strong>{{locations}}</p>
+        <p><strong class="text-primary">Data: </strong></p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title text-primary">CHARACTERIZATION</h5>
+        <p><strong class="text-primary">Type: </strong></p>
+        <p><strong class="text-primary">Domain: </strong></p>
+        <p><strong class="text-primary">Language: </strong></p>
+        <p><strong class="text-primary">Partners (Institutions, Address, Phone, Fax, e-mail and url): </strong></p>
+        <p><strong class="text-primary">Liks: </strong></p>
+        <p><strong class="text-primary">Estimated accomplishing: </strong></p>
+        <p><strong class="text-primary">Estimated replication numbers: </strong></p>
+        <p><strong class="text-primary">Glossary: </strong></p>
+    </div>
+</div>

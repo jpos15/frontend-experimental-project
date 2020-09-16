@@ -1,48 +1,53 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="cadastroForm">
     <div class="d-flex w-100 justify-content-between">
-        <h6>Cadastrar Projetos</h6>
-        <button class="btn btn-sm btn-outline-success" [disabled]="loading">
-            <div [ngSwitch]="loading">
-                <div *ngSwitchCase="true">
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;
-                    <span>Carregando ...</span>
+        <div>
+            <h6>Register a new Project</h6>
+        </div>
+        <div>
+            <a type="button" class="btn btn-sm btn-outline-secondary mr-2" href="javascript:window.history.back();"><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i> Voltar</a>
+            <button type="submit" class="btn btn-sm btn-outline-success" [disabled]="loading || cadastroForm.invalid">
+                <div [ngSwitch]="loading">
+                    <div *ngSwitchCase="true">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;
+                        <span>Carregando ...</span>
+                    </div>
+                    <div *ngSwitchDefault>
+                        <i class="fa fa-check mr-1" aria-hidden="true"></i><span>Save</span>
+                    </div>
                 </div>
-                <div *ngSwitchDefault>
-                    <i class="fa fa-check mr-1" aria-hidden="true"></i><span>Salvar</span>
-                </div>
-            </div>
-        </button>
+            </button>
+        </div>
     </div>
     <hr>
     <div>
         <div class="form-group">
-            <label for="title">Título<span class="text-danger">*</span></label>
-            <input type="text" id="title" name="title" class="form-control" placeholder="Título" formControlName="title"
+            <label for="title">Title<span class="text-danger">*</span></label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Title" formControlName="title"
                 [ngClass]="{'is-invalid':cadastroForm.get('title').errors &&(cadastroForm.get('title').dirty ||cadastroForm.get('title').touched)}" />
             <div class="invalid-feedback"><span
                     *ngIf="cadastroForm.get('title').errors?.required &&(cadastroForm.get('title').dirty ||cadastroForm.get('title').touched)">
-                    Título é obrigatório
+                    Title is required
                 </span>
             </div>
         </div>
         <div class="form-group">
-            <label for="thema">Tema<span class="text-danger">*</span></label>
-            <input type="text" id="thema" name="thema" class="form-control" placeholder="Tema" formControlName="thema"
+            <label for="thema">Theme<span class="text-danger">*</span></label>
+            <input type="text" id="thema" name="thema" class="form-control" placeholder="Theme" formControlName="thema"
                 [ngClass]="{'is-invalid':cadastroForm.get('thema').errors &&(cadastroForm.get('thema').dirty ||cadastroForm.get('thema').touched)}" />
             <div class="invalid-feedback"><span
                     *ngIf="cadastroForm.get('thema').errors?.required &&(cadastroForm.get('thema').dirty ||cadastroForm.get('thema').touched)">
-                    Tema é obrigatório
+                    Theme is required
                 </span>
             </div>
         </div>
         <div class="form-group">
-            <label for="technicalArea">Área Técnica<span class="text-danger">*</span></label>
-            <input type="text" id="technicalArea" name="technicalArea" class="form-control" placeholder="Área Técnica"
+            <label for="technicalArea">Technical Area<span class="text-danger">*</span></label>
+            <input type="text" id="technicalArea" name="technicalArea" class="form-control" placeholder="Technical Area"
                 formControlName="technicalArea"
                 [ngClass]="{'is-invalid':cadastroForm.get('technicalArea').errors &&(cadastroForm.get('technicalArea').dirty ||cadastroForm.get('technicalArea').touched)}" />
             <div class="invalid-feedback"><span
                     *ngIf="cadastroForm.get('technicalArea').errors?.required &&(cadastroForm.get('technicalArea').dirty ||cadastroForm.get('technicalArea').touched)">
-                    Área Técnica é obrigatória
+                    Technical Area is required
                 </span>
             </div>
         </div>
@@ -54,7 +59,7 @@
             </select>
             <div class="invalid-feedback"><span
                     *ngIf="cadastroForm.get('author').errors?.required &&(cadastroForm.get('author').dirty ||cadastroForm.get('author').touched)">
-                    Autor é obrigatória
+                    Author is required
                 </span>
             </div>
         </div>
@@ -66,7 +71,7 @@
             </select>
             <div class="invalid-feedback"><span
                     *ngIf="cadastroForm.get('local').errors?.required &&(cadastroForm.get('local').dirty ||cadastroForm.get('local').touched)">
-                    Local é obrigatória
+                    Local is required
                 </span>
             </div>
         </div>
